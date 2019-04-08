@@ -1,0 +1,93 @@
+html {
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+  font-family: 'Nunito Sans', sans-serif;
+  box-sizing: border-box;
+  background: #5f9fd0;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.panels {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+.panel {
+  display: flex;
+  background: #6B0F9C;
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+  color: white;
+  text-align: center;
+  align-items: center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.panel1 { background-image:url('./boxed-water-is-better-1463986-unsplash.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center; }
+.panel2 { background-image:url('./david-marcu-114194-unsplash.jpg'); }
+.panel3 { background-image:url('./luca-zanon-26595-unsplash.jpg'); }
+.panel4 { background-image:url('./mark-basarab-122141-unsplash.jpg'); }
+.panel5 { background-image:url('./riccardo-chiarini-365677-unsplash.jpg'); }
+/* Flex Children */
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.panel > *:first-child {
+  transform: translateY(-150%);
+}
+
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+.panel > *:last-child {
+  transform: translateY(150%);
+}
+
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+.panel p {
+  text-transform: uppercase;
+  font-size: 2em; 
+}
+
+.panel p:nth-child(2) { 
+  font-size: 2em;
+}
+.panel.open {
+  flex: 4;
+  font-size: 2.5em;
+}
+
+@media only screen and (max-width: 600px) {
+  .panel  {
+    font-size: 1em;
+  }
+}
